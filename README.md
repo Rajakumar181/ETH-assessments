@@ -1,71 +1,31 @@
-MyToken Solidity Smart Contract
+SolidiyfunctionandErrors
+solidity Error Handling Assessment This repository is for the project assessment of the project of the 1st module of : solidity-avax-intermediate course of Metacrafters academy .
 
-Simple Overview of Use/Purpose:
-This Solidity smart contract defines a custom token called "DOLA" with the abbreviation "DLA". It includes functionalities for minting new tokens, burning existing tokens, and keeping track of token balances for different addresses.
+Problem Statement
+write a smart contract that implements the require(), assert() and revert() statements.
 
-Description:
-The MyToken contract allows the creation and management of a simple ERC20-like token on the Ethereum blockchain. It features public variables to store token details, a mapping to track balances, and functions to mint and burn tokens. The contract is designed to increase and decrease the total supply of tokens dynamically while ensuring that tokens are only burned if the sender has a sufficient balance.
+Description
+This program is a simple contract written in Solidity, a programming language used for developing smart contracts on the Ethereum blockchain. The contract has a three function that inputs the values, checks the condition using error handling statement and executes the function.
 
-Getting Started:
-Installing
-Install Remix IDE or any other Solidity development environment.
-Create a new file and copy the MyToken contract code into it.
-How/Where to Download Your Program
-The contract code can be directly copied from the provided snippet and pasted into your development environment.
-Any Modifications Needed to Be Made to Files/Folders
-No modifications are needed to the contract code for basic usage.
-Executing Program:
-How to Run the Program
-Open Remix IDE and create a new file named MyToken.sol.
-Paste the provided contract code into MyToken.sol.
-Compile the contract using the Solidity compiler version 0.8.18.
-Deploy the contract to a local blockchain (e.g., Remix VM) or a testnet (e.g., Ropsten, Rinkeby).
-Step-by-Step Bullets
-Open Remix IDE.
-Create a new file: MyToken.sol.
-Paste the contract code into MyToken.sol.
-Select the appropriate compiler version (0.8.18).
-Compile the contract.
-Deploy the contract using the "Deploy & Run Transactions" tab.
-Interact with the deployed contract using the available functions (mint and burn).
-Code Blocks for Commands:
-// SPDX-License-Identifier: MIT
-pragma solidity 0.8.18;
+The check_require function sets a value but requires the input value to be greater than 0 for this it uses require() for input validation, If the value is less than 0 than ot returns string value "Input is valid".
 
-contract MyToken {
+The check_assert function takes two uint value and their sum is stored in another variable. Now if the sum is less than 255, The function returns "sum is valid" string, for this we use assert() for validation here.
 
-    // Public variables here
-    string public tokenName = "DOLA";
-    string public tokenAbbrv = "DLA";
-    uint public totalSupply = 0;
+The check_revert function takes two uint value and their sum is stored in another variable. Now if the sum is greater than 0 and less than 255, The function returns "no overflow" string and sum value, for this we use revert() for validation here.
 
-    // Mapping variable here
-    mapping(address => uint) public balances;
+Getting Started
+Executing Program To run this program, you can use Remix, an online Solidity IDE. To get started, go to the Remix website at https://remix.ethereum.org/.
 
-    // Mint function
-    function mint(address _address, uint _value) public {
-        totalSupply += _value;
-        balances[_address] += _value;
-    }
+Once you are on the Remix website, create a new file by clicking on the "+" icon in the left-hand sidebar. Save the file with a .sol extension (e.g., error.sol). Copy and paste the following code written by me into the file.
 
-    // Burn function
-    function burn(address _address, uint _value) public {
-        require(balances[_address] >= _value, "Insufficient balance to burn");
-        totalSupply -= _value;
-        balances[_address] -= _value;
-    }
-}
-Help:
-Any Advice for Common Problems or Issues
-Ensure you are using the correct Solidity compiler version (0.8.18).
-When burning tokens, ensure the sender's balance is greater than or equal to the amount being burned to avoid a failed transaction.
-Always test the contract on a local blockchain or testnet before deploying to the mainnet.
-Command to Run if Program Contains Helper Info
-No additional helper commands are required for this contract.
-Authors:
-Contributors names and contact info:
+To compile the code, click on the "Solidity Compiler" tab in the left-hand sidebar. Make sure the "Compiler" option is set heigher to "0.8.1" (or another compatible version), and then click on the "Compile error.sol" button.
 
-Raja Kumar: @rajapusaho@gmail.com
+Once the code is compiled, you can deploy the contract by clicking on the "Deploy & Run Transactions" tab in the left-hand sidebar. Select the "errorhandlingcontract" contract from the dropdown menu, and then click on the "Deploy" button.
 
-License:
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+Once the contract is deployed, you can interact with it by calling any of the three function to set the value, check_require function to perform the require statement, check_assert function to perform the assert statement and check_revert function to perform the revert function. you just need to enter the values and then click on call.
+
+Author
+Raja Kumar
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details
